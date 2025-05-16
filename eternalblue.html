@@ -1,0 +1,585 @@
+<html><head></head><body><iframe style="height: 1029px; width: 100%; overflow: hidden; z-index: 10;" class="overflow-hidden" frameborder="0" srcdoc="<!DOCTYPE html><html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;><head>
+    <meta charset=&quot;UTF-8&quot; />
+    <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; />
+    <script src=&quot;https://cdn.tailwindcss.com&quot;></script>
+    <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;></script>
+    
+    <style>::-webkit-scrollbar { display: none;}</style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'hack-blue': '#0096FF',
+                        'hack-dark': '#121212',
+                        'hack-darker': '#0A0A0A',
+                        'hack-light': '#303030',
+                    },
+                    fontFamily: {
+                        'mono': ['Roboto Mono', 'monospace'],
+                        'poppins': ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: transparent;
+            font-family: 'Roboto Mono', monospace;
+        }
+        .minecraft-bg {
+            background-image: url('https://img.freepik.com/free-vector/gradient-dark-dynamic-lines-background_23-2148995950.jpg?semt=ais_hybrid&amp;w=740');
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            filter: blur(2px) brightness(0.5);
+        }
+    </style>
+<link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot; /><link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin=&quot;&quot; /><link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&amp;amp;display=swap&quot; /><style>
+  .highlighted-section {
+    outline: 2px solid #3F20FB;
+    background-color: rgba(63, 32, 251, 0.1);
+  }
+
+  .edit-button {
+    position: absolute;
+    z-index: 1000;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  html, body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  </style></head>
+<body>
+    <div class=&quot;minecraft-bg&quot;></div>
+    <div id=&quot;hack-overlay&quot; class=&quot;h-[100vh] w-full p-4 text-white font-mono flex flex-col&quot;>
+        <!-- Header with logo -->
+        <div id=&quot;header&quot; class=&quot;flex justify-between items-center mb-4&quot;>
+            <div class=&quot;flex items-center&quot;>
+                <i class=&quot;fa-solid fa-shield-halved text-hack-blue text-2xl mr-2&quot;></i>
+                <h1 class=&quot;text-2xl font-bold text-hack-blue font-poppins&quot;>Eternal<span class=&quot;text-white&quot;>Blue</span> <span class=&quot;text-xs bg-hack-blue px-1 rounded text-black&quot;>v2.1.4</span></h1>
+            </div>
+            <div class=&quot;flex space-x-2&quot;>
+                <button class=&quot;bg-hack-light hover:bg-hack-blue transition-colors duration-200 px-3 py-1 rounded-sm text-xs&quot;>
+                    <i class=&quot;fa-solid fa-gear mr-1&quot;></i> Settings
+                </button>
+                <button class=&quot;bg-hack-light hover:bg-hack-blue transition-colors duration-200 px-3 py-1 rounded-sm text-xs&quot;>
+                    <i class=&quot;fa-solid fa-user mr-1&quot;></i> Profile
+                </button>
+            </div>
+        </div>
+        
+        <!-- Main content area -->
+        <div class=&quot;flex flex-1 space-x-4&quot;>
+            <!-- Left sidebar with modules -->
+            <div id=&quot;modules-sidebar&quot; class=&quot;w-64 bg-hack-darker bg-opacity-70 rounded-md p-2 overflow-auto&quot;>
+                <div class=&quot;text-xs uppercase text-hack-blue mb-2 font-semibold border-b border-hack-blue pb-1&quot;>Active Modules</div>
+                
+                <div class=&quot;space-y-1&quot;>
+                    <div class=&quot;flex justify-between items-center bg-hack-light bg-opacity-50 p-2 rounded&quot;>
+                        <div class=&quot;flex items-center&quot;>
+                            <i class=&quot;fa-solid fa-bolt text-hack-blue mr-2&quot;></i>
+                            <span>KillAura</span>
+                        </div>
+                        <div class=&quot;flex items-center space-x-1&quot;>
+                            <span class=&quot;text-xs text-gray-400&quot;>6.2</span>
+                            <i class=&quot;fa-solid fa-toggle-on text-hack-blue&quot;></i>
+                        </div>
+                    </div>
+                    
+                    <div class=&quot;flex justify-between items-center bg-hack-light bg-opacity-50 p-2 rounded&quot;>
+                        <div class=&quot;flex items-center&quot;>
+                            <i class=&quot;fa-solid fa-person-running text-hack-blue mr-2&quot;></i>
+                            <span>Speed</span>
+                        </div>
+                        <div class=&quot;flex items-center space-x-1&quot;>
+                            <span class=&quot;text-xs text-gray-400&quot;>2.1</span>
+                            <i class=&quot;fa-solid fa-toggle-on text-hack-blue&quot;></i>
+                        </div>
+                    </div>
+                    
+                    <div class=&quot;flex justify-between items-center bg-hack-light bg-opacity-50 p-2 rounded&quot;>
+                        <div class=&quot;flex items-center&quot;>
+                            <i class=&quot;fa-solid fa-eye text-hack-blue mr-2&quot;></i>
+                            <span>ESP</span>
+                        </div>
+                        <div class=&quot;flex items-center space-x-1&quot;>
+                            <span class=&quot;text-xs text-gray-400&quot;>-</span>
+                            <i class=&quot;fa-solid fa-toggle-on text-hack-blue&quot;></i>
+                        </div>
+                    </div>
+                    
+                    <div class=&quot;flex justify-between items-center bg-hack-light bg-opacity-50 p-2 rounded&quot;>
+                        <div class=&quot;flex items-center&quot;>
+                            <i class=&quot;fa-solid fa-person-falling text-hack-blue mr-2&quot;></i>
+                            <span>NoFall</span>
+                        </div>
+                        <div class=&quot;flex items-center space-x-1&quot;>
+                            <span class=&quot;text-xs text-gray-400&quot;>-</span>
+                            <i class=&quot;fa-solid fa-toggle-on text-hack-blue&quot;></i>
+                        </div>
+                    </div>
+                    
+                    <div class=&quot;flex justify-between items-center bg-hack-light bg-opacity-50 p-2 rounded&quot;>
+                        <div class=&quot;flex items-center&quot;>
+                            <i class=&quot;fa-solid fa-arrows-up-down text-gray-500 mr-2&quot;></i>
+                            <span class=&quot;text-gray-400&quot;>Fly</span>
+                        </div>
+                        <div class=&quot;flex items-center space-x-1&quot;>
+                            <span class=&quot;text-xs text-gray-400&quot;>4.0</span>
+                            <i class=&quot;fa-solid fa-toggle-off text-gray-500&quot;></i>
+                        </div>
+                    </div>
+                    
+                    <div class=&quot;flex justify-between items-center bg-hack-light bg-opacity-50 p-2 rounded&quot;>
+                        <div class=&quot;flex items-center&quot;>
+                            <i class=&quot;fa-solid fa-heart text-gray-500 mr-2&quot;></i>
+                            <span class=&quot;text-gray-400&quot;>AutoHeal</span>
+                        </div>
+                        <div class=&quot;flex items-center space-x-1&quot;>
+                            <span class=&quot;text-xs text-gray-400&quot;>-</span>
+                            <i class=&quot;fa-solid fa-toggle-off text-gray-500&quot;></i>
+                        </div>
+                    </div>
+                    
+                    <div class=&quot;flex justify-between items-center bg-hack-light bg-opacity-50 p-2 rounded&quot;>
+                        <div class=&quot;flex items-center&quot;>
+                            <i class=&quot;fa-solid fa-location-crosshairs text-hack-blue mr-2&quot;></i>
+                            <span>Aimbot</span>
+                        </div>
+                        <div class=&quot;flex items-center space-x-1&quot;>
+                            <span class=&quot;text-xs text-gray-400&quot;>3.2</span>
+                            <i class=&quot;fa-solid fa-toggle-on text-hack-blue&quot;></i>
+                        </div>
+                    </div>
+                    
+                    <div class=&quot;flex justify-between items-center bg-hack-light bg-opacity-50 p-2 rounded&quot;>
+                        <div class=&quot;flex items-center&quot;>
+                            <i class=&quot;fa-solid fa-x-ray text-gray-500 mr-2&quot;></i>
+                            <span class=&quot;text-gray-400&quot;>X-Ray</span>
+                        </div>
+                        <div class=&quot;flex items-center space-x-1&quot;>
+                            <span class=&quot;text-xs text-gray-400&quot;>-</span>
+                            <i class=&quot;fa-solid fa-toggle-off text-gray-500&quot;></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class=&quot;text-xs uppercase text-hack-blue mt-4 mb-2 font-semibold border-b border-hack-blue pb-1&quot;>Categories</div>
+                <div class=&quot;space-y-1&quot;>
+                    <button class=&quot;w-full text-left bg-hack-blue bg-opacity-20 p-2 rounded text-sm hover:bg-opacity-30 transition-colors duration-200&quot;>
+                        <i class=&quot;fa-solid fa-sword fa-sm mr-2&quot;></i> Combat
+                    </button>
+                    <button class=&quot;w-full text-left bg-hack-light bg-opacity-50 p-2 rounded text-sm hover:bg-opacity-70 transition-colors duration-200&quot;>
+                        <i class=&quot;fa-solid fa-person-walking fa-sm mr-2&quot;></i> Movement
+                    </button>
+                    <button class=&quot;w-full text-left bg-hack-light bg-opacity-50 p-2 rounded text-sm hover:bg-opacity-70 transition-colors duration-200&quot;>
+                        <i class=&quot;fa-solid fa-eye fa-sm mr-2&quot;></i> Render
+                    </button>
+                    <button class=&quot;w-full text-left bg-hack-light bg-opacity-50 p-2 rounded text-sm hover:bg-opacity-70 transition-colors duration-200&quot;>
+                        <i class=&quot;fa-solid fa-shield fa-sm mr-2&quot;></i> Player
+                    </button>
+                    <button class=&quot;w-full text-left bg-hack-light bg-opacity-50 p-2 rounded text-sm hover:bg-opacity-70 transition-colors duration-200&quot;>
+                        <i class=&quot;fa-solid fa-wrench fa-sm mr-2&quot;></i> Utility
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Main panel -->
+            <div id=&quot;main-panel&quot; class=&quot;flex-1 flex flex-col space-y-4&quot;>
+                <!-- Combat module settings -->
+                <div id=&quot;module-settings&quot; class=&quot;bg-hack-darker bg-opacity-70 rounded-md p-4&quot;>
+                    <div class=&quot;flex justify-between items-center mb-4&quot;>
+                        <h2 class=&quot;text-lg font-semibold text-hack-blue flex items-center&quot;>
+                            <i class=&quot;fa-solid fa-bolt mr-2&quot;></i> KillAura Configuration
+                        </h2>
+                        <div class=&quot;flex space-x-2&quot;>
+                            <button class=&quot;bg-hack-light hover:bg-hack-blue transition-colors duration-200 px-3 py-1 rounded-sm text-xs&quot;>
+                                <i class=&quot;fa-solid fa-rotate-left mr-1&quot;></i> Reset
+                            </button>
+                            <button class=&quot;bg-hack-blue hover:bg-blue-600 transition-colors duration-200 px-3 py-1 rounded-sm text-xs&quot;>
+                                <i class=&quot;fa-solid fa-floppy-disk mr-1&quot;></i> Save
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class=&quot;grid grid-cols-2 gap-4&quot;>
+                        <div>
+                            <label class=&quot;text-xs text-gray-300 block mb-1&quot;>Range</label>
+                            <div class=&quot;flex items-center&quot;>
+                                <input type=&quot;range&quot; min=&quot;1&quot; max=&quot;10&quot; value=&quot;6&quot; class=&quot;w-full h-2 bg-hack-light rounded-lg appearance-none cursor-pointer&quot; />
+                                <span class=&quot;ml-2 text-sm&quot;>6.2</span>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class=&quot;text-xs text-gray-300 block mb-1&quot;>Delay (ms)</label>
+                            <div class=&quot;flex items-center&quot;>
+                                <input type=&quot;range&quot; min=&quot;0&quot; max=&quot;500&quot; value=&quot;50&quot; class=&quot;w-full h-2 bg-hack-light rounded-lg appearance-none cursor-pointer&quot; />
+                                <span class=&quot;ml-2 text-sm&quot;>50</span>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class=&quot;text-xs text-gray-300 block mb-1&quot;>FOV</label>
+                            <div class=&quot;flex items-center&quot;>
+                                <input type=&quot;range&quot; min=&quot;30&quot; max=&quot;360&quot; value=&quot;180&quot; class=&quot;w-full h-2 bg-hack-light rounded-lg appearance-none cursor-pointer&quot; />
+                                <span class=&quot;ml-2 text-sm&quot;>180°</span>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class=&quot;text-xs text-gray-300 block mb-1&quot;>Max Targets</label>
+                            <div class=&quot;flex items-center&quot;>
+                                <input type=&quot;range&quot; min=&quot;1&quot; max=&quot;10&quot; value=&quot;4&quot; class=&quot;w-full h-2 bg-hack-light rounded-lg appearance-none cursor-pointer&quot; />
+                                <span class=&quot;ml-2 text-sm&quot;>4</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class=&quot;mt-4 grid grid-cols-2 gap-4&quot;>
+                        <div>
+                            <label class=&quot;text-xs text-gray-300 block mb-1&quot;>Target Mode</label>
+                            <select class=&quot;w-full bg-hack-light text-white p-2 rounded text-sm&quot;>
+                                <option>Closest</option>
+                                <option>Health</option>
+                                <option>Angle</option>
+                                <option>Armor</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class=&quot;text-xs text-gray-300 block mb-1&quot;>Attack Mode</label>
+                            <select class=&quot;w-full bg-hack-light text-white p-2 rounded text-sm&quot;>
+                                <option>Single</option>
+                                <option>Switch</option>
+                                <option>Multi</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class=&quot;mt-4 grid grid-cols-3 gap-2&quot;>
+                        <div class=&quot;flex items-center&quot;>
+                            <input type=&quot;checkbox&quot; id=&quot;autoblock&quot; class=&quot;mr-2&quot; checked=&quot;&quot; />
+                            <label for=&quot;autoblock&quot; class=&quot;text-sm&quot;>AutoBlock</label>
+                        </div>
+                        
+                        <div class=&quot;flex items-center&quot;>
+                            <input type=&quot;checkbox&quot; id=&quot;throughwalls&quot; class=&quot;mr-2&quot; checked=&quot;&quot; />
+                            <label for=&quot;throughwalls&quot; class=&quot;text-sm&quot;>Through Walls</label>
+                        </div>
+                        
+                        <div class=&quot;flex items-center&quot;>
+                            <input type=&quot;checkbox&quot; id=&quot;silent&quot; class=&quot;mr-2&quot; />
+                            <label for=&quot;silent&quot; class=&quot;text-sm&quot;>Silent</label>
+                        </div>
+                        
+                        <div class=&quot;flex items-center&quot;>
+                            <input type=&quot;checkbox&quot; id=&quot;players&quot; class=&quot;mr-2&quot; checked=&quot;&quot; />
+                            <label for=&quot;players&quot; class=&quot;text-sm&quot;>Players</label>
+                        </div>
+                        
+                        <div class=&quot;flex items-center&quot;>
+                            <input type=&quot;checkbox&quot; id=&quot;mobs&quot; class=&quot;mr-2&quot; checked=&quot;&quot; />
+                            <label for=&quot;mobs&quot; class=&quot;text-sm&quot;>Mobs</label>
+                        </div>
+                        
+                        <div class=&quot;flex items-center&quot;>
+                            <input type=&quot;checkbox&quot; id=&quot;animals&quot; class=&quot;mr-2&quot; />
+                            <label for=&quot;animals&quot; class=&quot;text-sm&quot;>Animals</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Player radar -->
+                <div id=&quot;player-radar&quot; class=&quot;bg-hack-darker bg-opacity-70 rounded-md p-4 flex-1&quot;>
+                    <div class=&quot;flex justify-between items-center mb-4&quot;>
+                        <h2 class=&quot;text-lg font-semibold text-hack-blue flex items-center&quot;>
+                            <i class=&quot;fa-solid fa-radar mr-2&quot;></i> Player Radar
+                        </h2>
+                        <div class=&quot;text-xs text-gray-400&quot;>5 players detected</div>
+                    </div>
+                    
+                    <div class=&quot;overflow-auto h-[200px]&quot;>
+                        <table class=&quot;w-full text-sm&quot;>
+                            <thead class=&quot;text-xs text-hack-blue uppercase&quot;>
+                                <tr>
+                                    <th class=&quot;text-left p-2&quot;>Player</th>
+                                    <th class=&quot;text-left p-2&quot;>Distance</th>
+                                    <th class=&quot;text-left p-2&quot;>Health</th>
+                                    <th class=&quot;text-left p-2&quot;>Armor</th>
+                                    <th class=&quot;text-left p-2&quot;>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class=&quot;border-b border-hack-light&quot;>
+                                    <td class=&quot;p-2 flex items-center&quot;>
+                                        <i class=&quot;fa-solid fa-skull text-red-500 mr-1&quot;></i> Enemy432
+                                    </td>
+                                    <td class=&quot;p-2&quot;>24m <span class=&quot;text-red-500&quot;>(↓)</span></td>
+                                    <td class=&quot;p-2&quot;>
+                                        <div class=&quot;w-16 bg-hack-light rounded-full h-2&quot;>
+                                            <div class=&quot;bg-red-500 h-2 rounded-full&quot; style=&quot;width: 30%&quot;></div>
+                                        </div>
+                                    </td>
+                                    <td class=&quot;p-2&quot;>
+                                        <div class=&quot;flex&quot;>
+                                            <i class=&quot;fa-solid fa-shield text-gray-400 text-xs&quot;></i>
+                                            <i class=&quot;fa-solid fa-shield text-gray-400 text-xs&quot;></i>
+                                            <i class=&quot;fa-solid fa-shield text-gray-400 text-xs&quot;></i>
+                                            <i class=&quot;fa-solid fa-shield text-gray-400 text-xs&quot;></i>
+                                        </div>
+                                    </td>
+                                    <td class=&quot;p-2&quot;>
+                                        <button class=&quot;bg-hack-blue text-white text-xs px-2 py-0.5 rounded&quot;>Target</button>
+                                    </td>
+                                </tr>
+                                <tr class=&quot;border-b border-hack-light&quot;>
+                                    <td class=&quot;p-2 flex items-center&quot;>
+                                        <i class=&quot;fa-solid fa-skull text-red-500 mr-1&quot;></i> xXShadowKillerXx
+                                    </td>
+                                    <td class=&quot;p-2&quot;>38m <span class=&quot;text-green-500&quot;>(→)</span></td>
+                                    <td class=&quot;p-2&quot;>
+                                        <div class=&quot;w-16 bg-hack-light rounded-full h-2&quot;>
+                                            <div class=&quot;bg-green-500 h-2 rounded-full&quot; style=&quot;width: 90%&quot;></div>
+                                        </div>
+                                    </td>
+                                    <td class=&quot;p-2&quot;>
+                                        <div class=&quot;flex&quot;>
+                                            <i class=&quot;fa-solid fa-shield text-yellow-500 text-xs&quot;></i>
+                                            <i class=&quot;fa-solid fa-shield text-yellow-500 text-xs&quot;></i>
+                                            <i class=&quot;fa-solid fa-shield text-yellow-500 text-xs&quot;></i>
+                                            <i class=&quot;fa-solid fa-shield text-yellow-500 text-xs&quot;></i>
+                                        </div>
+                                    </td>
+                                    <td class=&quot;p-2&quot;>
+                                        <button class=&quot;bg-hack-blue text-white text-xs px-2 py-0.5 rounded&quot;>Target</button>
+                                    </td>
+                                </tr>
+                                <tr class=&quot;border-b border-hack-light&quot;>
+                                    <td class=&quot;p-2 flex items-center&quot;>
+                                        <i class=&quot;fa-solid fa-skull text-red-500 mr-1&quot;></i> DiamondWarrior
+                                    </td>
+                                    <td class=&quot;p-2&quot;>42m <span class=&quot;text-red-500&quot;>(↑)</span></td>
+                                    <td class=&quot;p-2&quot;>
+                                        <div class=&quot;w-16 bg-hack-light rounded-full h-2&quot;>
+                                            <div class=&quot;bg-green-500 h-2 rounded-full&quot; style=&quot;width: 100%&quot;></div>
+                                        </div>
+                                    </td>
+                                    <td class=&quot;p-2&quot;>
+                                        <div class=&quot;flex&quot;>
+                                            <i class=&quot;fa-solid fa-shield text-blue-400 text-xs&quot;></i>
+                                            <i class=&quot;fa-solid fa-shield text-blue-400 text-xs&quot;></i>
+                                            <i class=&quot;fa-solid fa-shield text-blue-400 text-xs&quot;></i>
+                                            <i class=&quot;fa-solid fa-shield text-blue-400 text-xs&quot;></i>
+                                        </div>
+                                    </td>
+                                    <td class=&quot;p-2&quot;>
+                                        <button class=&quot;bg-hack-blue text-white text-xs px-2 py-0.5 rounded&quot;>Target</button>
+                                    </td>
+                                </tr>
+                                <tr class=&quot;border-b border-hack-light&quot;>
+                                    <td class=&quot;p-2 flex items-center&quot;>
+                                        <i class=&quot;fa-solid fa-skull text-red-500 mr-1&quot;></i> EnderSlayer99
+                                    </td>
+                                    <td class=&quot;p-2&quot;>56m <span class=&quot;text-green-500&quot;>(←)</span></td>
+                                    <td class=&quot;p-2&quot;>
+                                        <div class=&quot;w-16 bg-hack-light rounded-full h-2&quot;>
+                                            <div class=&quot;bg-yellow-500 h-2 rounded-full&quot; style=&quot;width: 60%&quot;></div>
+                                        </div>
+                                    </td>
+                                    <td class=&quot;p-2&quot;>
+                                        <div class=&quot;flex&quot;>
+                                            <i class=&quot;fa-solid fa-shield text-gray-400 text-xs&quot;></i>
+                                            <i class=&quot;fa-solid fa-shield text-gray-400 text-xs&quot;></i>
+                                            <i class=&quot;fa-solid fa-shield text-gray-400 text-xs&quot;></i>
+                                            <i class=&quot;fa-solid fa-shield-blank text-gray-700 text-xs&quot;></i>
+                                        </div>
+                                    </td>
+                                    <td class=&quot;p-2&quot;>
+                                        <button class=&quot;bg-hack-blue text-white text-xs px-2 py-0.5 rounded&quot;>Target</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class=&quot;p-2 flex items-center&quot;>
+                                        <i class=&quot;fa-solid fa-user text-green-500 mr-1&quot;></i> FriendlyUser123
+                                    </td>
+                                    <td class=&quot;p-2&quot;>10m <span class=&quot;text-yellow-500&quot;>(↓)</span></td>
+                                    <td class=&quot;p-2&quot;>
+                                        <div class=&quot;w-16 bg-hack-light rounded-full h-2&quot;>
+                                            <div class=&quot;bg-red-500 h-2 rounded-full&quot; style=&quot;width: 20%&quot;></div>
+                                        </div>
+                                    </td>
+                                    <td class=&quot;p-2&quot;>
+                                        <div class=&quot;flex&quot;>
+                                            <i class=&quot;fa-solid fa-shield text-gray-400 text-xs&quot;></i>
+                                            <i class=&quot;fa-solid fa-shield-blank text-gray-700 text-xs&quot;></i>
+                                            <i class=&quot;fa-solid fa-shield-blank text-gray-700 text-xs&quot;></i>
+                                            <i class=&quot;fa-solid fa-shield-blank text-gray-700 text-xs&quot;></i>
+                                        </div>
+                                    </td>
+                                    <td class=&quot;p-2&quot;>
+                                        <button class=&quot;bg-gray-500 text-white text-xs px-2 py-0.5 rounded&quot;>Friend</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right sidebar with stats -->
+            <div id=&quot;stats-sidebar&quot; class=&quot;w-64 space-y-4&quot;>
+                <!-- Player stats -->
+                <div class=&quot;bg-hack-darker bg-opacity-70 rounded-md p-3&quot;>
+                    <h3 class=&quot;text-xs uppercase text-hack-blue mb-2 font-semibold border-b border-hack-blue pb-1&quot;>Player Stats</h3>
+                    
+                    <div class=&quot;space-y-2 text-sm&quot;>
+                        <div class=&quot;flex justify-between&quot;>
+                            <span>Health:</span>
+                            <span class=&quot;text-green-400&quot;>16/20</span>
+                        </div>
+                        <div class=&quot;flex justify-between&quot;>
+                            <span>Armor:</span>
+                            <span class=&quot;text-blue-400&quot;>18/20</span>
+                        </div>
+                        <div class=&quot;flex justify-between&quot;>
+                            <span>Hunger:</span>
+                            <span class=&quot;text-yellow-400&quot;>18/20</span>
+                        </div>
+                        <div class=&quot;flex justify-between&quot;>
+                            <span>XP:</span>
+                            <span class=&quot;text-green-400&quot;>Level 32</span>
+                        </div>
+                        <div class=&quot;flex justify-between&quot;>
+                            <span>Position:</span>
+                            <span class=&quot;text-gray-300&quot;>X:256 Y:64 Z:128</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- World info -->
+                <div class=&quot;bg-hack-darker bg-opacity-70 rounded-md p-3&quot;>
+                    <h3 class=&quot;text-xs uppercase text-hack-blue mb-2 font-semibold border-b border-hack-blue pb-1&quot;>World Info</h3>
+                    
+                    <div class=&quot;space-y-2 text-sm&quot;>
+                        <div class=&quot;flex justify-between&quot;>
+                            <span>Time:</span>
+                            <span class=&quot;text-gray-300&quot;>Day (12:30)</span>
+                        </div>
+                        <div class=&quot;flex justify-between&quot;>
+                            <span>Weather:</span>
+                            <span class=&quot;text-gray-300&quot;>Clear</span>
+                        </div>
+                        <div class=&quot;flex justify-between&quot;>
+                            <span>Biome:</span>
+                            <span class=&quot;text-gray-300&quot;>Forest</span>
+                        </div>
+                        <div class=&quot;flex justify-between&quot;>
+                            <span>Entities:</span>
+                            <span class=&quot;text-gray-300&quot;>32 loaded</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Performance -->
+                <div class=&quot;bg-hack-darker bg-opacity-70 rounded-md p-3&quot;>
+                    <h3 class=&quot;text-xs uppercase text-hack-blue mb-2 font-semibold border-b border-hack-blue pb-1&quot;>Performance</h3>
+                    
+                    <div class=&quot;space-y-2 text-sm&quot;>
+                        <div class=&quot;flex justify-between&quot;>
+                            <span>FPS:</span>
+                            <span class=&quot;text-green-400&quot;>144</span>
+                        </div>
+                        <div class=&quot;flex justify-between&quot;>
+                            <span>Ping:</span>
+                            <span class=&quot;text-green-400&quot;>28ms</span>
+                        </div>
+                        <div class=&quot;flex justify-between&quot;>
+                            <span>TPS:</span>
+                            <span class=&quot;text-green-400&quot;>20.0</span>
+                        </div>
+                        <div class=&quot;flex justify-between&quot;>
+                            <span>Memory:</span>
+                            <span class=&quot;text-yellow-400&quot;>3.2GB/4GB</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Session info -->
+                <div class=&quot;bg-hack-darker bg-opacity-70 rounded-md p-3&quot;>
+                    <h3 class=&quot;text-xs uppercase text-hack-blue mb-2 font-semibold border-b border-hack-blue pb-1&quot;>Session</h3>
+                    
+                    <div class=&quot;space-y-2 text-sm&quot;>
+                        <div class=&quot;flex justify-between&quot;>
+                            <span>Kills:</span>
+                            <span class=&quot;text-red-400&quot;>14</span>
+                        </div>
+                        <div class=&quot;flex justify-between&quot;>
+                            <span>Deaths:</span>
+                            <span class=&quot;text-green-400&quot;>0</span>
+                        </div>
+                        <div class=&quot;flex justify-between&quot;>
+                            <span>K/D:</span>
+                            <span class=&quot;text-green-400&quot;>14.0</span>
+                        </div>
+                        <div class=&quot;flex justify-between&quot;>
+                            <span>Playtime:</span>
+                            <span class=&quot;text-gray-300&quot;>1h 24m</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer with status -->
+        <div id=&quot;footer&quot; class=&quot;mt-4 bg-hack-darker bg-opacity-70 rounded-md p-2 flex justify-between items-center text-xs&quot;>
+            <div class=&quot;flex items-center space-x-4&quot;>
+                <div class=&quot;flex items-center&quot;>
+                    <div class=&quot;w-2 h-2 rounded-full bg-green-500 mr-1&quot;></div>
+                    <span>Online</span>
+                </div>
+                <div>Server: mc.hypixel.net</div>
+                <div>Gamemode: Survival</div>
+            </div>
+            <div class=&quot;flex items-center space-x-4&quot;>
+                <button class=&quot;text-gray-400 hover:text-hack-blue transition-colors&quot;>
+                    <i class=&quot;fa-solid fa-keyboard&quot;></i> Keybinds
+                </button>
+                <button class=&quot;text-gray-400 hover:text-hack-blue transition-colors&quot;>
+                    <i class=&quot;fa-solid fa-bug&quot;></i> Report Bug
+                </button>
+                <div class=&quot;text-hack-blue&quot;>
+                    EternalBlue v2.1.4
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Simulate KillAura target selection
+        setInterval(() =&amp;gt; {
+            const rows = document.querySelectorAll('tbody tr');
+            const randomRow = Math.floor(Math.random() * rows.length);
+            
+            rows.forEach((row, index) =&amp;gt; {
+                if (index === randomRow &amp;amp;&amp;amp; !row.querySelector('.fa-user')) {
+                    row.classList.add('bg-hack-blue', 'bg-opacity-20');
+                } else {
+                    row.classList.remove('bg-hack-blue', 'bg-opacity-20');
+                }
+            });
+        }, 3000);
+    </script>
+
+</body></html>" title="wireframe-0"></div></iframe></body></html>
